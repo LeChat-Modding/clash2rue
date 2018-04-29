@@ -14,7 +14,7 @@ const db = low(adapter);
 
 db.defaults({histoires: [], xp: []}).write()
 
-client.login("NDQwMTIwMTUzNzc5MjA4MjE5.DceKbQ.bMm134iLwcgfbAaT-tK4uyxvY34");
+ bot.login(process.env.TOKEN);
 
 client.on('ready', () => {
     console.log("Pret !");
