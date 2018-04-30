@@ -14,7 +14,7 @@ const db = low(adapter);
 
 db.defaults({histoires: [], xp: []}).write()
 
- bot.login(process.env.TOKEN);
+bot.login(process.env.TOKEN);
 
 client.on('ready', () => {
     console.log("Pret !");
@@ -55,7 +55,6 @@ client.on('message', message => {
         .addField("/help", "Savoir les commandes possible :D")
         .addField("/ddos", "Savoir l'url de notre stresser, (en cours)")
         .addField("/contact", "Savoir comment nous contacter !")
-        .addField("/purge", "Supprime les message entre 5 et 10"
         .setFooter("Kali ©")
         message.channel.send(help_embed)
         console.log("Message d'aide envoyée")
@@ -112,5 +111,7 @@ client.on('message', message => {
             message.reply(`${member.user.username} a été expulsé avec succès.`).catch(console.error);
             message.guild.channels.find("name", "general").send(`**${member.user.username} a été banni du Discord par **${message.author}**`)
         }).catch(console.error);
-           
+    }
+    
+      
 } );
