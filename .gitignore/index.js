@@ -40,7 +40,7 @@ client.on('guildMemberAdd', member => {
     member.addRole(role)
 });
 
-client.on('message', message => {
+client.on('message', async message => {
 
 
     if(message.content === "!bonjour") {
