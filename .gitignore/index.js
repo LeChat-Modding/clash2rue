@@ -4,16 +4,6 @@ const client = new  Discord.Client();
 
 var prefix = "/";
 
-//XP
-
-const low = require('lowdb');
-const FileSync = require(`lowdb/adapters/FileSync`);
-
-const adapter = new FileSync('database.json');
-const db = low(adapter);
-
-db.defaults({histoires: [], xp: []}).write()
-
 bot.login(process.env.TOKEN);
 
 client.on('ready', () => {
@@ -41,7 +31,8 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('message', async message => {
-
+    
+    var sender = message.author;
 
     if(message.content === "!bonjour") {
         message.reply("Bonjour, tu as besoin de mon aide ? Fait /help !");
@@ -114,15 +105,15 @@ client.on('message', async message => {
         }).catch(console.error);
     }
     
-     if(command === "purge") {
+    if(command === "purge") {
         const deleteCount = parseInt(args[0], 10);
-
+        
         if(!deleteCount || deleteCount < 2 || deleteCount > 100) return message.reply("Dire un nombre entre 2 et 100");
-const fetched = await message.channel.fetchMessages({count: deleteCount});
-message.channel.bulkDelete(fetched)
-.catch(error => message.reply(`Je n'ai pas pu supprimer les message car: ${error}`));
 
-}
+        const fetched = await message.channel.fetchMessages({count: deleteCount});
+        message.channel.bulkDelete(fetched)
+          .catch(error => message.reply(`Je n'ai pas pu supprimer les message car: ${error}`));
+    }
     
       
 } );
