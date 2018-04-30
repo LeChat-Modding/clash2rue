@@ -112,17 +112,5 @@ client.on('message', message => {
             message.reply(`${member.user.username} a été expulsé avec succès.`).catch(console.error);
             message.guild.channels.find("name", "general").send(`**${member.user.username} a été banni du Discord par **${message.author}**`)
         }).catch(console.error);
-     
-    }
- if(command === "purge") {
-        const deleteCount = parseInt(args[0], 10);
-
-        if(!deleteCount || deleteCount < 2 || deleteCount > 100) return message.reply("Dire un nombre entre 2 et 100");
-
-        const fetched = await message.channel.fetchMessages({count: deleteCount});
-        message.channel.bulkDelete(fetched)
-          .catch(error => message.reply(Je n'ai pas pu supprimer les message car: ${error}));
-    }
-    
-      
+           
 } );
