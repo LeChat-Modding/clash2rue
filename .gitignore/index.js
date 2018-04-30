@@ -120,7 +120,7 @@ client.on('message', message => {
         if(!deleteCount || deleteCount < 2 || deleteCount > 100) return message.reply("Dire un nombre entre 2 et 100");
 const fetched = await message.channel.fetchMessages({count: deleteCount});
 message.channel.bulkDelete(fetched)
-.catch(error => message.reply(Je n'ai pas pu supprimer les message car: ${error}));
+.catch(error => message.reply(`Je n'ai pas pu supprimer les message car: ${error}`));
 }
     
       
