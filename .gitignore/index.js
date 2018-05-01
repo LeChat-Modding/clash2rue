@@ -56,7 +56,7 @@ client.on('message', message => {
         .addField("/ddos", "Savoir l'url de notre stresser, (en cours)")
         .addField("/contact", "Savoir comment nous contacter !")
         .addField("/purge", "Supprime les message de 5 a 10")
-        .setFooter("Kali ©")
+        .setFooter("GReysi ©")
         message.channel.send(help_embed)
         console.log("Message d'aide envoyée")
     }
